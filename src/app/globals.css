@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  /* --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 26, 32, 44; 
+  --background-end-rgb: 26, 32, 44;  */
+    color: black;
+  /* background-color: rgb(26,32,44); */
+  background-color: #f8fafc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 26, 32, 44; 
+    --background-end-rgb: 26, 32, 44;  */
+    /* background-color: rgb(26,32,44); */
+    background-color: #f8fafc;
+    color: gray;
+    
+  }
+}
+
+body {
+
+  /* background-color: rgb(26,32,44); */
+  background-color: #f8fafc;
+  color:black;
+}
+*{
+ color:inherit;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
