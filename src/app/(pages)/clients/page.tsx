@@ -8,7 +8,7 @@ export default function ClientsPage() {
   useAuth();
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen p-12">
       <ClientTable />
       <Profile className="absolute top-4 right-4" />
     </div>

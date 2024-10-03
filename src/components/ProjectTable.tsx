@@ -15,7 +15,7 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog"
 
-const ProjectTable: React.FC = () => {
+const ProjectTable = ({ params }: { params: { clientId?: number } }) => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [showCreateModal, setShowCreateModal] = useState<boolean>(false);
   const [showEditModal, setShowEditModal] = useState<boolean>(false);
@@ -24,9 +24,13 @@ const ProjectTable: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const router = useRouter();
 
+  const { clientId } = params;
+
+
   const fetchProjects = async () => {
     try {
       const queryParams = new URLSearchParams({
+        clientId: clientId ? clientId.toString() : "",
         searchQuery: searchQuery || "",
         sortOrder: sortOrder,
       });

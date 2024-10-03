@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import React, { useState, useEffect } from 'react';
 import CreateClientModal from './CreateClientModal';
 import EditClientModal from './EditClientModal'; 
-import { Client } from '../utils/types';
+import { Client } from '@/utils/types';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -15,7 +15,6 @@ import {
   DialogTrigger,
   DialogFooter,
 } from "@/components/ui/dialog";
-import debounce from 'debounce';
 
 const ClientTable: React.FC = () => {
   const [clients, setClients] = useState<Client[]>([]);
@@ -47,7 +46,7 @@ const ClientTable: React.FC = () => {
   };
 
   useEffect(() => {
-    fetchClients();
+    fetchClients().then();
   }, [searchQuery]);
 
   // Use useEffect to filter clients when searchQuery changes
@@ -149,23 +148,23 @@ const ClientTable: React.FC = () => {
             <TableRow key={client.id}>
               <TableCell>
                 <Link href={`/details?clientId=${client.id}`}>
-                  <span className="text-blue-600 cursor-pointer hover:underline">
+                  <Link href={`/clients/${client.id}`} className="text-blue-600 cursor-pointer hover:underline">
                     {client.clientName}
-                  </span>
+                  </Link>
                 </Link>
               </TableCell>
               <TableCell>{client.status}</TableCell>
               <TableCell>{client.email}</TableCell>
               <TableCell>{client.phoneNumber}</TableCell>
               <TableCell>
-                <Button className="text-white bg-gray-700 hover:bg-gray-800" onClick={() => openEditModal(client)}>
+                <Button className="text-white bg-blue-500 hover:bg-blue-600" onClick={() => openEditModal(client)}>
                   Edit
                 </Button>
               </TableCell>
               <TableCell>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button className="bg-gray-700 hover:bg-gray-800 text-white">Delete</Button>
+                    <Button className="text-white bg-red-500 hover:bg-red-600">Delete</Button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>
@@ -175,7 +174,7 @@ const ClientTable: React.FC = () => {
                       </DialogDescription>
                     </DialogHeader>
                     <DialogFooter>
-                      <Button className="text-white bg-gray-700 hover:bg-gray-800" onClick={() => handleDeleteClient(client.id)}>
+                      <Button className="text-white bg-red-500 hover:bg-red-600" onClick={() => handleDeleteClient(client.id)}>
                         Delete
                       </Button>
                     </DialogFooter>
