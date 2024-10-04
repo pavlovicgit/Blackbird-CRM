@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Project, Comment } from '../utils/types';
 import { Table, TableBody, TableCell, TableHeader, TableRow } from '@/components/ui/table';
+import { Button } from './ui/button';
 
 const ProjectDetails: React.FC = () => {
   const router = useRouter();
@@ -45,6 +46,7 @@ const ProjectDetails: React.FC = () => {
     }
   };
 
+
   const handleAddComment = async () => {
     if (projectId && newComment.trim() && project) {
       const commentObj = {
@@ -80,83 +82,89 @@ const ProjectDetails: React.FC = () => {
 
   return (
     <div className="p-4">
-      <div className="flex space-x-4">
-        <Table className="bg-white border text-xs w-full max-w-2xl">
-          <TableHeader>
-            <TableRow>
-              <TableCell colSpan={2} className="text-center text-black font-bold">
-                Project Details
-              </TableCell>
-            </TableRow>
-          </TableHeader>
-          <TableBody className="text-gray-700">
-            <TableRow>
-              <TableCell className="border px-4 py-2 font-semibold">Project Name</TableCell>
-              <TableCell className="border px-4 py-2">{project.projectName}</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell className="border px-4 py-2 font-semibold">Start Date</TableCell>
-              <TableCell className="border px-4 py-2">{new Date(project.startDate).toLocaleDateString()}</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell className="border px-4 py-2 font-semibold">Status</TableCell>
-              <TableCell className="border px-4 py-2">{project.status}</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
+       <div className="mt-4 flex flex-row space-x-4 h-[300px]">
+        
 
-        <Table className="bg-white border text-xs w-full max-w-2xl">
-  <TableHeader>
-    <TableRow>
-      <TableCell colSpan={2} className="text-center text-black font-bold">
-        Comments
-      </TableCell>
-    </TableRow>
-  </TableHeader>
-  <TableBody className="text-gray-700">
-    <TableRow>
-      <TableCell colSpan={2} className="border px-4 py-2">
-        <div className="mb-4">
-          <textarea
-            value={newComment}
-            onChange={(e) => setNewComment(e.target.value)}
-            placeholder="Add a comment..."
-            rows={3}
-            className="border p-2 w-full text-black"
-          />
-          <button
-            onClick={handleAddComment}
-            className="bg-blue-500 text-white px-3 py-1 mt-2 rounded text-xs"
-          >
-            Add Comment
-          </button>
-        </div>
-        <div className="overflow-y-auto max-h-96 border-t border-gray-300 pt-2">
-          {comments.length > 0 ? (
-            comments.map(comment => (
-              <div key={comment.id} className="border-b mb-2 pb-2 flex items-start">
-              <div className="flex-1 break-all">
-                <p><strong>{comment.projectName}:</strong> {comment.commentText}</p>
+  <div className="bg-white border border-gray rounded-md p-4 w-1/3 h-full">
+                  <div className="mb-4 font-semibold text-[20px]">Client Details</div>
+
+                  <div className="flex flex-row items-center w-full">
+                      <div className="flex flex-col space-y-2">
+                          <p>
+                              <span className="text-black font-bold">Project Name</span>: {project.projectName}
+                          </p>
+                          <p>
+                              <span className="text-black font-bold">Start Date</span>: {new Date(project.startDate).toLocaleDateString()}
+                          </p>
+                          <p>
+                              <span className="text-black font-bold">Status</span>: {project.status}
+                          </p>
+                      </div>
+                  </div>
               </div>
-              <div className="w-24 text-gray-500 text-[10px] text-right">
-                {new Date(comment.createdDate).toLocaleDateString()}
-              </div>
+
+
+            <div className="bg-white border border-gray rounded-md p-4 w-1/3 flex flex-col h-full">
+                <div className="mb-4 font-semibold text-[20px]">Create Comment</div>
+
+                <textarea
+                    value={newComment}
+                    onChange={(e) => setNewComment(e.target.value)}
+                    placeholder="Add a comment..."
+                    rows={3}
+                    className="border p-2 w-full text-black grow mb-4 resize-none"
+                />
+
+                <Button
+                    onClick={handleAddComment}
+                    className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 mt-2 rounded"
+                >
+                    Add Comment
+                </Button>
             </div>
-            ))
-          ) : (
-            <div className="text-center">No comments available</div>
-          )}
-        </div>
-      </TableCell>
-    </TableRow>
-  </TableBody>
-</Table>
+
+            <div className="bg-white border border-gray rounded-md p-4 w-1/3 h-full  overflow-y-scroll">
+                <div className="mb-4 font-semibold text-[20px]">Comments</div>
+
+                <div className="text-[16px]">
+                    <div className="pb-2">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum ea et facere fugit, laudantium nostrum quidem quo rem similique.</p>
+                        <p className="mt-2 text-gray text-[14px]">9:30 2024/10/01</p>
+                    </div>
+                    <hr/>
+                    <div className="pb-2">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum ea et facere fugit, laudantium nostrum quidem quo rem similique.</p>
+                        <p className="text-gray text-[14px]">9:30 2024/10/01</p>
+                    </div>
+                    <hr/>
+                    <div className="pb-2">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum ea et facere fugit, laudantium nostrum quidem quo rem similique.</p>
+                        <p className="text-gray text-[14px]">9:30 2024/10/01</p>
+                    </div>
+                    <hr/>
+                    <div className="pb-2">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum ea et facere fugit, laudantium nostrum quidem quo rem similique.</p>
+                        <p className="text-gray text-[14px]">9:30 2024/10/01</p>
+                    </div>
+                    <hr/>
+                    <div className="pb-2">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum ea et facere fugit, laudantium nostrum quidem quo rem similique.</p>
+                        <p className="text-gray text-[14px]">9:30 2024/10/01</p>
+                    </div>
+                    <hr/>
+                    <div className="pb-2">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum ea et facere fugit, laudantium nostrum quidem quo rem similique.</p>
+                        <p className="text-gray text-[14px]">9:30 2024/10/01</p>
+                    </div>
+                </div>
+              </div>
       </div>
 
       <div className="text-center mt-4">
         <button
           onClick={() => router.push('/projects')}
-          className="text-blue-500 underline"
+
+          className="text-blue-500 hover:text-blue-600 font-bold underline"
         >
           Back to Projects
         </button>
