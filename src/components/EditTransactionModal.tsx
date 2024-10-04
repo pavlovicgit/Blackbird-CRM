@@ -188,13 +188,13 @@ const EditTransactionModal: React.FC<EditTransactionModalProps> = ({ transaction
               required
             >
               <option value="USD">USD ($)</option>
-              <option value="EUR">EUR (€)</option>
+              <option value="EUR">EUR (€)</option>  
               <option value="RSD">RSD (РСД)</option>
             </select>
           </div>
-          <div className="flex justify-between mt-4">
-            <Button type="submit" className="bg-gray-700 hover:bg-gray-800">Save</Button>
-            <Button type="button" onClick={handleDelete} className="bg-gray-700 hover:bg-gray-800">Delete</Button>
+          <div className="flex justify-between mt-4">   
+            <Button type="button" onClick={handleDelete} className="bg-red-500 text-white hover:bg-red-600">Delete</Button>
+            <Button type="submit" className="bg-green-500 text-white hover:bg-green-600">Save</Button>
           </div>
         </form>
       </div>

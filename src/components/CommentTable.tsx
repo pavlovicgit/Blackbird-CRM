@@ -110,7 +110,7 @@ const CommentTable: React.FC = () => {
         placeholder="Search comments"
         value={searchQuery}
         onChange={(e) => handleSearch(e.target.value)}
-        className="w-1/3 text-black p-2 border-2 border-gray-800"
+        className="w-1/3 text-black p-2 border border-gray-200 rounded-md"
         
       />
       <Link href="#" passHref>
@@ -165,7 +165,7 @@ const CommentTable: React.FC = () => {
                 </span>
               </TableCell>
               <TableCell>
-                <Button className="bg-gray-700 hover:bg-gray-800" onClick={() => {
+                <Button className="bg-yellow-500 text-white hover:bg-yellow-600" onClick={() => {
                   setEditComment(comment);
                   setShowEditModal(true);
                 }}>
@@ -176,7 +176,7 @@ const CommentTable: React.FC = () => {
               <TableCell>
               <Dialog>
                   <DialogTrigger asChild>
-                    <Button  className="bg-gray-700 hover:bg-gray-800 text-white">Delete</Button>
+                    <Button  className="bg-red-500 text-white hover:bg-red-600">Delete</Button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>
@@ -187,7 +187,7 @@ const CommentTable: React.FC = () => {
                     </DialogHeader>
                     
                     <DialogFooter>
-                    <Button className="bg-gray-700 hover:bg-gray-800" onClick={() => handleDeleteComment(comment.id)}>
+                    <Button className="bg-red-500 text-white hover:bg-red-600" onClick={() => handleDeleteComment(comment.id)}>
                               Delete
                             </Button>
                     </DialogFooter>

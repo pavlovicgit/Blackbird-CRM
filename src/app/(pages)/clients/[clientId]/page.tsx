@@ -144,7 +144,7 @@ const ClientDetails = ({ params }: { params: { clientId: number } }) => {
 
                         <Button
                             onClick={handleAddComment}
-                            className="bg-blue-500 text-white px-3 py-1 mt-2 rounded mt-auto"
+                            className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 mt-2 rounded"
                         >
                             Add Comment
                         </Button>

@@ -107,12 +107,12 @@ const ProjectTable = ({ params }: { params: { clientId?: number } }) => {
     <div className="p-2">
       <h1 className="text-xl font-bold mb-2">Projects</h1>
       <div className="flex space-x-4 items-center py-2">
-        <Button className="bg-gray-700" onClick={openCreateModal}>Create</Button>
+        <Button className="bg-blue-500 text-white hover:bg-blue-600" onClick={openCreateModal}>Create</Button>
         <input
           placeholder="Search projects" 
           value={searchQuery} 
           onChange={(e) => handleSearch(e.target.value)} 
-          className="w-1/3 text-black p-2 border-2 border-gray-800"
+          className="w-1/3 text-black p-2 border border-gray-200 rounded-md"
         />
       </div>
       <Table>
@@ -143,14 +143,14 @@ const ProjectTable = ({ params }: { params: { clientId?: number } }) => {
               <TableCell>{new Date(project.startDate).toLocaleDateString()}</TableCell>
               <TableCell>{project.status}</TableCell>
               <TableCell>
-                <Button className="bg-gray-700 hover:bg-gray-800" onClick={(e) => { e.stopPropagation(); openEditModal(project); }}>
+                <Button className="bg-yellow-500 hover:bg-yellow-600" onClick={(e) => { e.stopPropagation(); openEditModal(project); }}>
                   Edit
                 </Button>
               </TableCell>
               <TableCell>
               <Dialog>
                   <DialogTrigger asChild>
-                    <Button  className="bg-gray-700 text-white hover:bg-gray-800">Delete</Button>
+                    <Button  className="bg-red-500 text-white hover:bg-red-600">Delete</Button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>
@@ -160,7 +160,7 @@ const ProjectTable = ({ params }: { params: { clientId?: number } }) => {
                       </DialogDescription>
                     </DialogHeader>
                     <DialogFooter>
-                    <Button className="bg-gray-700 hover:bg-gray-800" onClick={(e) => { e.stopPropagation(); handleDeleteProject(project.id); }}>
+                    <Button className="bg-red-500 text-white hover:bg-red-600" onClick={(e) => { e.stopPropagation(); handleDeleteProject(project.id); }}>
                       Delete
                     </Button>
                     </DialogFooter>

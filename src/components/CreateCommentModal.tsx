@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Client, Project, Comment } from '../utils/types';
+import { Button } from './ui/button';
 
 interface CreateCommentModalProps {
   onClose: () => void;
@@ -105,8 +106,8 @@ const CreateCommentModal: React.FC<CreateCommentModalProps> = ({ onClose, onComm
             />
           </div>
           <div className="mt-6 flex justify-end">
-            <button type="button" onClick={onClose} className="bg-gray-700 text-white p-2 rounded-md mr-2">Cancel</button>
-            <button type="submit" className="bg-gray-700 text-white p-2 rounded-md">Create</button>
+            <Button type="button" onClick={onClose} className="bg-red-500 hover:bg-red-600 text-white mr-2">Cancel</Button>
+            <Button type="submit" className="bg-green-500 hover:bg-green-600 text-white">Create</Button>
           </div>
         </form>
       </div>

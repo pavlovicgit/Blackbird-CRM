@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Client, Project, Comment } from '../utils/types';
 import { IoCloseOutline } from "react-icons/io5";
+import { Button } from './ui/button';
 
 interface EditCommentModalProps {
   comment: Comment;
@@ -132,8 +133,8 @@ const EditCommentModal: React.FC<EditCommentModalProps> = ({ comment, onClose, o
         />
       </div>
       <div className="flex justify-between mt-4">
-        <button type="submit" className="bg-gray-700 hover:bg-gray-800 p-2 rounded text-white">Save</button>
-        <button type="button" onClick={handleDelete} className="bg-gray-700 hover:bg-gray-800 text-white p-2 rounded">Delete</button>
+        <Button type="button" onClick={handleDelete} className="bg-red-500 hover:bg-red-600 text-white p-2 rounded">Delete</Button>
+        <Button type="submit" className="bg-green-500 hover:bg-green-600 text-white">Save</Button>
       </div>
     </form>
   </div>

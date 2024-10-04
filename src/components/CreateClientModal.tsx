@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Client } from '../utils/types';
+import { Button } from './ui/button';
 
 interface CreateClientModalProps {
   onClose: () => void;
@@ -90,9 +91,9 @@ const CreateClientModal: React.FC<CreateClientModalProps> = ({ onClose, onClient
               required 
             />
           </div>
-          <div className="mt-6 flex justify-end">
-            <button type="button" onClick={onClose} className="bg-gray-700 text-white p-2 rounded-md mr-2">Cancel</button>
-            <button type="submit" className="bg-gray-700 p-2 rounded text-white">Create</button>
+          <div className="mt-6 flex justify-between">
+            <Button type="button" onClick={onClose} className="bg-red-500 hover:bg-red-600 text-white mr-2">Cancel</Button>
+            <Button type="submit" className="bg-green-500 hover:bg-green-600 text-white">Create</Button>
             
           </div>
         </form>

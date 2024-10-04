@@ -122,15 +122,15 @@ const ClientTable: React.FC = () => {
     <div className="p-2">
       <h1 className="text-xl font-bold mb-2">Clients</h1>
       <div className="py-2 flex items-center space-x-4">
-        <Button className="bg-gray-700" onClick={(e) => { e.preventDefault(); openCreateModal(); }}>
+        <Button className="bg-blue-500 text-white hover:bg-blue-600" onClick={(e) => { e.preventDefault(); openCreateModal(); }}>
           Create
         </Button>
         <input
           placeholder="Search clients"
           value={searchQuery}
           onChange={(e) => handleSearch(e.target.value)}
-          className="w-1/3 p-2 border-2 border-gray-700 text-black"
-        />
+          className="w-1/3 p-2 border border-gray-200  text-black"
+        />    
       </div>
       <Table>
         <TableHeader>
@@ -157,14 +157,14 @@ const ClientTable: React.FC = () => {
               <TableCell>{client.email}</TableCell>
               <TableCell>{client.phoneNumber}</TableCell>
               <TableCell>
-                <Button className="text-white bg-blue-500 hover:bg-blue-600" onClick={() => openEditModal(client)}>
+                <Button className="text-white bg-yellow-500 hover:bg-yellow-600" onClick={() => openEditModal(client)}>
                   Edit
                 </Button>
               </TableCell>
               <TableCell>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button className="text-white bg-red-500 hover:bg-red-600">Delete</Button>
+                    <Button className="text-white bg-red-500 hover:bg-red-600 rounded-md">Delete</Button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>

@@ -120,7 +120,7 @@ const TransactionTable: React.FC = () => {
       <div className="flex items-center mb-4 gap-4">
         <Button
           onClick={openCreateModal}
-          className="bg-gray-700"
+          className="bg-blue-500 text-white hover:bg-blue-600"
         >
           Create Transaction
         </Button>
@@ -128,7 +128,7 @@ const TransactionTable: React.FC = () => {
           placeholder="Search transactions"
           value={searchQuery}
           onChange={(e) => handleSearch(e.target.value)}
-          className="w-1/3 text-black p-2 border-2 border-gray-800"
+          className="w-1/3 text-black p-2 border border-gray-200 rounded-md"
         />
       </div>
       <Table>
@@ -156,7 +156,7 @@ const TransactionTable: React.FC = () => {
               <TableCell>
                 <Button
                   onClick={() => openEditModal(transaction)}
-                  className="bg-gray-700 hover:bg-gray-800"
+                  className="bg-yellow-500 text-white hover:bg-yellow-600"
                 >
                   Edit
                 </Button>
@@ -164,7 +164,7 @@ const TransactionTable: React.FC = () => {
               <TableCell>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button className="bg-gray-700 hover:bg-gray-800">Delete</Button>
+                    <Button className="bg-red-500 text-white hover:bg-red-600">Delete</Button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>
@@ -174,7 +174,7 @@ const TransactionTable: React.FC = () => {
                       </DialogDescription>
                     </DialogHeader>
                     <DialogFooter>
-                      <Button className="bg-gray-700 hover:bg-gray-800" onClick={() => handleDeleteTransaction(transaction.id)}>
+                      <Button className="bg-red-500 text-white hover:bg-red-600" onClick={() => handleDeleteTransaction(transaction.id)}>
                         Delete
                       </Button>
                     </DialogFooter>

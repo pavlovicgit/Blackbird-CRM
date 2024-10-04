@@ -109,7 +109,7 @@ const Login = () => {
                     />
                   </div>
                   <div className="flex justify-start mt-4">
-                    <Button type="submit" className="bg-blue-600 hover:bg-blue-700">Login</Button>
+                    <Button type="submit" className="bg-blue-500 text-white hover:bg-blue-600">Login</Button>
                   </div>
                 </form>
               </CardContent>
@@ -149,7 +149,7 @@ const Login = () => {
                     />
                   </div>
                   <div className="flex justify-start mt-4">
-                    <Button type="submit" className="bg-blue-600 hover:bg-blue-700">Register</Button>
+                    <Button type="submit" className="bg-blue-500 text-white hover:bg-blue-600">Register</Button>
                   </div>
                 </form>
               </CardContent>
