@@ -9,8 +9,8 @@ export default function ProjectsPage() {
 
     return (
         <div className="relative min-h-screen p-12">
-              <ProjectTable params={{}}/>
-              <Profile className="absolute top-4 right-4" />
+            <ProjectTable params={{}}/>
+            <Profile className="absolute top-4 right-4" />
         </div>
     );
 }

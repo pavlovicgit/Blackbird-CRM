@@ -12,7 +12,6 @@ const ClientDetails = ({ params }: { params: { clientId: number } }) => {
 
     const { clientId } = params;
 
-
     const [client, setClient] = useState<Client | null>(null);
     const [projects, setProjects] = useState<Project[]>([]);
     const [comments, setComments] = useState<Comment[]>([]);
@@ -20,13 +19,14 @@ const ClientDetails = ({ params }: { params: { clientId: number } }) => {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const [newComment, setNewComment] = useState<string>('');
     const [projectComments, setProjectComments] = useState<Comment[]>([]);
+
     useEffect(() => {
         if (clientId) {
-            fetchClientDetails(clientId.toString());
+            fetchClientDetails(clientId).then();
         }
     }, [clientId]);
 
-    const fetchClientDetails = async (clientId: string) => {
+    const fetchClientDetails = async (clientId: number) => {
         try {
             const clientDetailsResponse = await fetch(`http://localhost:5034/api/clients/${clientId}/details`);
             const clientDetailsData = await clientDetailsResponse.json();

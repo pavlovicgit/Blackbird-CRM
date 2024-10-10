@@ -5,12 +5,12 @@ import { useAuth } from "@/components/useAuth";
 import Profile from "@/components/Profile";
 
 export default function CommentsPage() {
-  useAuth();
+    useAuth();
 
-  return (
-    <div className="relative min-h-screen">
-      <CommentTable />
-      <Profile className="absolute top-4 right-4" />
-    </div>
-  );
+    return (
+        <div className="relative min-h-screen p-12">
+            <CommentTable />
+            <Profile className="absolute top-4 right-4" />
+        </div>
+    );
 }
